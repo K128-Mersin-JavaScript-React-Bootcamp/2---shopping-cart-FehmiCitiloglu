@@ -1,0 +1,39 @@
+.layout {
+  background-color: #e5e5e5;
+}
+
+.site-layout {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.site-layout h1 {
+  font-family: Public Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 62px;
+  padding-top: 80px;
+}
+
+.site-layout p {
+  color: #979797;
+  word-wrap: break-word;
+  font-family: Public Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.4px;
+}
+.site-layout button {
+  margin-bottom: 20px;
+  width: 194px;
+  height: 50px;
+}
+
+.site-layout .site-layout-background {
+  background: #64606033;
+}

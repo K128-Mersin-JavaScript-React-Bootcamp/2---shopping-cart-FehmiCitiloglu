@@ -1,0 +1,45 @@
+.product-detail {
+  position: absolute;
+  margin-top: 100px;
+}
+
+.deneme1 {
+}
+.deneme1 img {
+  margin: 10px 10px 10px;
+}
+.quantity {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.quantity button {
+  background-color: #e5e5e5;
+}
+.deneme2 h2 {
+  bottom: 79.78%;
+
+  font-family: Public Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+
+  letter-spacing: -1.5px;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.price strong {
+  position: relative;
+  left: -120px;
+}
+.price div {
+  display: flex;
+  flex-direction: row;
+  margin: 1px 1px;
+}

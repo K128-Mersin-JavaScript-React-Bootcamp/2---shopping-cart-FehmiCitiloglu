@@ -1,0 +1,31 @@
+.shop {
+  position: absolute;
+  display: flex;
+  left: 3%;
+  margin-top: 10vw;
+  width: 90vw;
+  height: 70%;
+}
+.dropdown {
+  position: relative;
+  right: -80%;
+}
+
+.contents {
+  align-content: center;
+}
+
+.moreLoad {
+  position: relative;
+  top: 80%;
+  right: 45%;
+  margin-top: 200px;
+
+  width: 298px;
+}
+
+.filters {
+  position: relative;
+  right: -100px;
+  bottom: 100px;
+}
