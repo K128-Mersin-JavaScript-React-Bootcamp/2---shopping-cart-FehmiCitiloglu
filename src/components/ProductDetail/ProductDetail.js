@@ -2,16 +2,19 @@ import { Row, Col, Button, Rate } from "antd";
 import classes from "./ProductDetail.module.css";
 import { cartActions } from "../../store/cart.js";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useParams, Link } from "react-router-dom";
+import { Redirect, useParams, Link, useHistory } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import { productActions } from "../../store/products";
 
 const ProductDetail = () => {
+  let history = useHistory();
+
   let { id } = useParams();
+
   const dispatch = useDispatch();
+
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
-  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     dispatch(productActions.getProductById(id));
@@ -19,12 +22,11 @@ const ProductDetail = () => {
   console.log("productdetail çalıştı");
   const product = useSelector((state) => state.prod.product);
 
-  
-
   const addToCartHandle = () => {
     if (isAuth) {
       dispatch(cartActions.addItemToCart(product));
     } else {
+      history.push("/login");
       <Link to="/login" />;
     }
   };
