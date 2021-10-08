@@ -1,7 +1,7 @@
 import classes from "./Shop.module.css";
 import { Row, Button } from "antd";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
+
 import MyDropDown from "./MyDropDown";
 
 import Filters from "./Filters";
@@ -25,9 +25,7 @@ const Shop = ({ products }) => {
 
   let categories = [];
 
-  products.map((product) => {
-    categories.push(product.category);
-  });
+  products.map((product) => categories.push(product.category));
   categories = [...new Set(categories)];
 
   // console.log("shop current products", currentProducts);

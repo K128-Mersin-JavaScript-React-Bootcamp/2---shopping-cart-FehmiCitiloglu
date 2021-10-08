@@ -11,7 +11,7 @@ const CartProduct = (props) => {
   const removeHandler = () => {
     dispatch(cartActions.removeItem(props.id));
   };
-  const cartItems = useSelector((state) => state.cart.items);
+  // const cartItems = useSelector((state) => state.cart.items);
 
   const items = (
     <div key={props.id}>

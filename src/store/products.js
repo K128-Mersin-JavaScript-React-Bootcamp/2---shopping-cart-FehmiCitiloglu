@@ -33,12 +33,12 @@ const productsSlice = createSlice({
       const id = +action.payload;
       state.product = state.products.find((product) => +product.id === id);
     },
-    sortProducts(state, action) {
-      const comparison = action.payload;
-      state.products = state.products.sort(
-        (a, b) => a.comparison - b.comparison
-      );
-    },
+    // sortProducts(state, action) {
+    //   // const comparison = action.payload;
+    //   state.products = state.products.sort(
+    //     (a, b) => a.comparison - b.comparison
+    //   );
+    // },
   },
 });
 

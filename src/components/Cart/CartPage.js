@@ -6,9 +6,14 @@ import { useSelector } from "react-redux";
 
 const CartPage = (props) => {
   const items = useSelector((state) => state.cart.items);
+  //  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const totalPrices = items.map((item) => item.totalPrice);
+
+  const totalAmount = totalPrices.reduce((a, b) => a + b, 0);
 
   const productItems = items.map((item) => (
     <CartProduct
+      key={item.id}
       id={item.id}
       image={item.image}
       name={item.name}
@@ -17,12 +22,12 @@ const CartPage = (props) => {
       totalPrice={item.totalPrice}
     />
   ));
-
+  console.log(totalAmount);
   return (
     <div className={classes["cart-page"]}>
       <div>
         <h2>Your Cart</h2>
-        <Link to="./shop">Not ready to checkout? Countinue Shopping</Link>
+        <Link to="./shop">Not ready to checkout? Continue Shopping</Link>
         {productItems}
       </div>
       <div className={classes.summary}>
@@ -44,7 +49,7 @@ const CartPage = (props) => {
             </div>
             <hr />
             <div>
-              <p>Total</p> <p>$ 200</p>
+              <p>Total</p> <p>$ {totalAmount}</p>
             </div>
           </div>
         </div>

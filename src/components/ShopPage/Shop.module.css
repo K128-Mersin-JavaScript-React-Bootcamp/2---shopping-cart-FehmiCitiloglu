@@ -16,9 +16,9 @@
 }
 
 .moreLoad {
-  position: relative;
-  top: 80%;
-  right: 45%;
+  position: fixed;
+  bottom: 0;
+  right: 40%;
   margin-top: 200px;
 
   width: 298px;

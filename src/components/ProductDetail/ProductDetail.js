@@ -2,14 +2,14 @@ import { Row, Col, Button, Rate } from "antd";
 import classes from "./ProductDetail.module.css";
 import { cartActions } from "../../store/cart.js";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import { productActions } from "../../store/products";
 
 const ProductDetail = () => {
   let history = useHistory();
-
+  const [productCount, setProductCount] = useState(1);
   let { id } = useParams();
 
   const dispatch = useDispatch();
@@ -18,19 +18,33 @@ const ProductDetail = () => {
 
   useEffect(() => {
     dispatch(productActions.getProductById(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
   console.log("productdetail çalıştı");
   const product = useSelector((state) => state.prod.product);
 
   const addToCartHandle = () => {
     if (isAuth) {
-      dispatch(cartActions.addItemToCart(product));
+      if (productCount !== 0) {
+        dispatch(
+          cartActions.addItemToCart({
+            item: product,
+            productCount: productCount,
+          })
+        );
+      }
     } else {
       history.push("/login");
       <Link to="/login" />;
     }
   };
-
+  const increaseHandler = () => {
+    setProductCount((prevState) => prevState + 1);
+  };
+  const decreaseHandler = () => {
+    if (productCount !== 0) {
+      setProductCount((prevState) => prevState - 1);
+    }
+  };
   return (
     <div className={classes["product-detail"]}>
       <Row gutter={30} justify="center">
@@ -84,7 +98,9 @@ const ProductDetail = () => {
                 }}
               >
                 <div className={classes.quantity}>
-                  <Button>-</Button>1<Button>+ </Button>
+                  <Button onClick={decreaseHandler}>-</Button>
+                  {productCount}
+                  <Button onClick={increaseHandler}>+ </Button>
                 </div>
               </Col>
             </Row>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 const UserPage = (props) => {
-  const [loading, setLoading] = useState();
+  // const [loading, setLoading] = useState();
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
